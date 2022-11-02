@@ -88,3 +88,16 @@ deps가 변하면 새로운 함수를 반환한다.
 
 메모이제이션된 '값'을 반환한다.
 deps가 변하면 함수가 실행되고 그 함수의 반환 값을 반환한다.
+
+좌변을 변형시키지 말아라
+실행계획 때문 explain을 알아야함
+좌변을 인덱스로 만들면 달라짐
+
+별도의 저장공간 index 정렬되서 저장 어디에있다
+create INdox 생성
+show index 목록 보기
+alter table employees drop INDEX employees_hire_date_idx
+
+실행계획에서 인덱스를 탄다고 보여줌 posible keys
+데이터가 적을때는 인덱스가 더 느릴수있다.
+좌변을 변형하지 않으면 인덱스를 사용할수 있음

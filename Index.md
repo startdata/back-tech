@@ -39,3 +39,17 @@ B+tree의 데이터노드들은 LinkedList로 연결하여 순차검색을 용�
 - 결합되는경우 select
 - 인덱스가 많은 경우 select는 빨라지지만 insert, update는 속도가 느려짐
 - insert,update가 정렬된 장소를 찾아서 저장해야 하고 테이블과 인덱스 둘다 해주어야 하기 때문에 느려짐
+
+---
+
+- where절의 좌변을 변형시키지 않아야 인덱스 사용가능
+
+---
+
+#### 사용법
+
+- create index [인덱스 컬럼명] ON [기존데이터 테이블명](저장할 컬럼)
+- show index from [테이블명]목록 보기
+- alter table [테이블명] drop INDEX [인덱스 컬럼명]
+
+---
