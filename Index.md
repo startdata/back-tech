@@ -53,3 +53,45 @@ B+tree의 데이터노드들은 LinkedList로 연결하여 순차검색을 용�
 - alter table [테이블명] drop INDEX [인덱스 컬럼명]
 
 ---
+
+### 인덱스를 사용하면 안되는 경우
+
+1. 데이터의 변경이 많은경우 (추가,수정,삭제가 빈번한 테이블)
+2. 데이터가 적은 경우
+
+### 인덱스가 실행되지 않는 케이스
+
+1. 인덱스 컬럼의 변형
+
+```
+SELECT * FROM EMP WHERE sal*10> 1000 => index X
+SELECT * FROM EMP WHERE sal> 1000/10 => index O
+```
+
+2. 내부적인 데이터 변환(컬럼의 데이터 타입과 맞지 않는 경우)
+
+```
+SELECT * FROM USER WHERE AGE> '30' => index X
+SELECT * FROM USER WHERE AGE> 30 => index O
+```
+
+3. NULL조건 사용
+
+```
+SELECT * FROM CUSTOMER WHERE AGE IS NULL => index X
+SELECT * FROM CUSTOMER WHERE AGE > 0 => index O
+```
+
+4. 부정형 조건 사용
+
+```
+SELECT * FROM CUSTOMER WHERE AGE != 20 => index X
+SELECT * FROM CUSTOMER WHERE AGE < 20 AND AGE > 20 => index O
+```
+
+5. LIKE 연산자 사용 (%가 앞으로 오는 경우에 사용불가)
+
+```
+SELECT * FROM CUSTOMER WHERE NAME LIKE '%A%' => index X
+SELECT * FROM CUSTOMER WHERE NAME LIKE 'A%' => index O
+```
