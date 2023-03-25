@@ -95,3 +95,6 @@ SELECT * FROM CUSTOMER WHERE AGE < 20 AND AGE > 20 => index O
 SELECT * FROM CUSTOMER WHERE NAME LIKE '%A%' => index X
 SELECT * FROM CUSTOMER WHERE NAME LIKE 'A%' => index O
 ```
+### 인덱스 종류
+클러스터 인덱스
+넌클러스터 인덱스
