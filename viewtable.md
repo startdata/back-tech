@@ -14,7 +14,7 @@ CREATE 생략가능[OR REPLACE] 생략가능[FORCE | NOFORCE] VIEW 뷰명 AS (SE
 
 - OR REPLACE option : 뷰를 수정할 때 DROP 없이 수정 가능
 - With Check option : 주어진 제약 조건에 맞는 데이터만 입력 및 수정 가능
-- With read only : 조횜 만 가능
+- With read only : 조회 만 가능
 
 ## View Table를 사용하는 이유
 
