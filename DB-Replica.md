@@ -6,4 +6,4 @@ DB조회 트래픽을 분산해서 DB의 부하를 줄인다.
 
 master가 쓰기 DB를 담당하고 slave가 Read를 담당하는 경우가 있다.
 
-## AWS
+### 분산DB
